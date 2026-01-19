@@ -1,0 +1,140 @@
+/* Paleta: #e7ceed, #db8334, #c27a5c, #a160b2, #943cab */
+:root{
+  --bg-1: #e7ceed;
+  --accent-1: #db8334;
+  --accent-2: #c27a5c;
+  --accent-3: #a160b2;
+  --accent-4: #943cab;
+  --text: #2b1f1a;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:Poppins,system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial}
+body{
+  background: linear-gradient(180deg, rgba(233,211,205,0.12) 0%, rgba(231,206,237,0.06) 100%);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+}
+
+.container{max-width:1100px;margin:0 auto;padding:32px}
+
+/* HERO */
+.hero{display:flex;align-items:center;justify-content:center;height:60vh;min-height:420px;position:relative;margin-bottom:24px}
+.hero .decor{position:absolute;width:260px;height:260px;border-radius:50%;filter:blur(36px);opacity:0.35}
+.hero .decor.left{left:-60px;top:10%;background:linear-gradient(135deg,var(--accent-3),var(--accent-4))}
+.hero .decor.right{right:-60px;bottom:10%;background:linear-gradient(135deg,var(--accent-2),var(--accent-1))}
+
+.card{background:linear-gradient(135deg,rgba(255,255,255,0.9),rgba(255,255,255,0.85));padding:36px 40px;border-radius:18px;box-shadow: 0 10px 30px rgba(32,18,24,0.12);text-align:center;transform:translateY(20px);opacity:0;transition:all .7s cubic-bezier(.2,.9,.2,1)}
+.card.enter{transform:none;opacity:1}
+
+.badge{display:inline-block;background:linear-gradient(90deg,var(--accent-1),var(--accent-2));color:white;padding:6px 12px;border-radius:999px;font-weight:600;margin-bottom:10px}
+
+.name{font-family:'Great Vibes',cursive;font-size:48px;margin:2px 0;color:var(--accent-4);text-shadow:0 2px 0 rgba(0,0,0,0.06)}
+.age{font-weight:600;color:var(--accent-2);margin:6px 0 18px}
+
+.cta{display:flex;gap:12px;justify-content:center}
+button, .link-btn{cursor:pointer;border:0;padding:10px 18px;border-radius:8px;font-weight:700;background:var(--accent-4);color:white;box-shadow:0 6px 18px rgba(148,60,171,0.14);transition:transform .15s ease,box-shadow .15s ease;text-decoration:none;display:inline-block}
+button:hover, .link-btn:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(148,60,171,0.12)}
+button.ghost{background:transparent;color:var(--accent-4);border:2px solid rgba(148,60,171,0.08)}
+
+/* Seção: detalhes (mapa, QR e sugestão de presente) */
+.details{display:grid;grid-template-columns:1fr 360px;gap:24px;align-items:start}
+.details-summary{display:block;margin-bottom:12px}
+
+/* Caixa pequena: botão que abre os detalhes embutidos */
+.small-box{background:linear-gradient(90deg,var(--accent-1),var(--accent-2));color:white;padding:18px;border-radius:14px;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,0.06)}
+.small-box h3{margin:0 0 6px}
+.small-box p{margin:0 0 12px}
+
+/* Painel que recebe os detalhes via fetch — insere o HTML de `details.html` aqui */
+.details-panel{overflow:hidden;transition:all .42s ease;max-height:0;opacity:0;transform:translateY(8px);}
+.details-panel.open{max-height:2000px;opacity:1;transform:none}
+.details-panel.hidden{max-height:0;opacity:0;pointer-events:none}
+
+/* Contador */
+/* Contador (fixo no topo) */
+.countdown{position:fixed;top:12px;left:0;right:0;display:flex;justify-content:center;z-index:1200;pointer-events:none}
+.countdown-inner{background:linear-gradient(90deg,var(--accent-3),var(--accent-4));color:white;padding:8px 14px;border-radius:999px;font-weight:700;box-shadow:0 8px 24px rgba(148,60,171,0.06);pointer-events:auto}
+
+/* Espaçamento para o contador fixo */
+body{padding-top:76px}
+
+@media print{.countdown{display:none}}
+.info{background:linear-gradient(180deg,white,rgba(255,255,255,0.92));padding:22px;border-radius:14px;box-shadow:0 8px 24px rgba(10,8,12,0.04)}
+.info h2{margin-top:0;color:var(--accent-3)}
+.info ul{list-style:none;padding:0;margin:8px 0 14px}
+.info li{padding:8px 0;border-bottom:1px dashed rgba(0,0,0,0.04)}
+.info h3{margin-bottom:6px;color:var(--accent-4)}
+
+.pix{padding:10px}
+.pix h2{margin:0 0 10px;color:var(--accent-3)}
+.pix-card{background:linear-gradient(180deg,#fff,rgba(255,255,255,0.96));padding:14px;border-radius:12px;box-shadow:0 8px 20px rgba(0,0,0,0.04)}
+.qr-preview{display:flex;align-items:center;justify-content:center;border-radius:8px;min-height:180px;background:linear-gradient(180deg,var(--bg-1),#fff);margin-bottom:14px;position:relative;overflow:hidden}
+.qr-preview img{max-width:100%;max-height:100%;object-fit:contain}
+.qr-placeholder{color:rgba(0,0,0,0.35);font-weight:600}
+
+.file-upload{display:inline-block;background:linear-gradient(90deg,var(--accent-1),var(--accent-2));color:white;padding:8px 12px;border-radius:8px;cursor:pointer}
+.file-upload input{display:none}
+
+.pix-controls{display:flex;flex-direction:column;gap:10px}
+.pix-key{display:flex;gap:8px}
+.pix-key input{flex:1;padding:9px;border-radius:8px;border:1px solid rgba(0,0,0,0.06)}
+.pix-key button{padding:9px 12px;border-radius:8px;background:var(--accent-3);color:white;border:none}
+
+.note{display:block;margin-top:10px;color:rgba(0,0,0,0.45)}
+
+.confirm{margin-top:12px;color:var(--accent-1);font-weight:700}
+.subtitle{margin:6px 0 12px;color:var(--accent-2);font-weight:600}
+
+.map{margin:12px 0 8px;border-radius:12px;overflow:hidden}
+.map iframe{width:100%;height:240px;border:0;display:block}
+.map-link{margin-top:6px}
+.map-link a{color:var(--accent-4);font-weight:600}
+
+.footer{text-align:center;margin-top:22px;color:rgba(0,0,0,0.6)}
+
+/* Modal */
+.modal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(3,2,2,0.36);opacity:0;pointer-events:none;transition:opacity .18s}
+.modal.open{opacity:1;pointer-events:auto}
+.modal-content{background:white;padding:20px;border-radius:12px;min-width:320px;max-width:460px;box-shadow:0 12px 40px rgba(13,11,12,0.2)}
+.modal-content h3{margin:0 0 12px}
+.modal-content form{display:grid;gap:10px}
+.modal-content label{font-size:13px;color:#332724}
+.modal-content input{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(0,0,0,0.06)}
+.modal-actions{display:flex;gap:8px;justify-content:flex-end;margin-top:6px}
+
+/* small screens */
+@media (max-width:880px){
+  .details{grid-template-columns:1fr;}
+  .hero{height:58vh}
+  .name{font-size:40px}
+}
+@media (max-width:480px){
+  .card{padding:26px}
+  .name{font-size:34px}
+  .hero .decor{display:none}
+}
+
+/* Balõezinhos decorativos que flutuam suavemente */
+@keyframes floaty{0%{transform:translateY(0)}50%{transform:translateY(-14px)}100%{transform:translateY(0)}}
+.card::after{content:'';position:absolute;left:20px;bottom:-40px;width:8px;height:8px;background:var(--accent-1);border-radius:50%;box-shadow:40px 10px 0 var(--accent-2),80px -8px 0 var(--accent-3);opacity:0.2;animation:floaty 4s ease-in-out infinite}
+
+/* Animação 'reveal' — faz os blocos aparecerem suavemente quando entram na tela */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .65s ease,transform .65s ease}
+.reveal.visible{opacity:1;transform:none}
+
+/* Confetti particulas */
+.confetti{position:fixed;pointer-events:none;border-radius:2px;will-change:transform,opacity;z-index:9999;transition:transform 1.2s cubic-bezier(.12,.7,.28,1),opacity 1s ease}
+
+/* Efeito de pulso no QR quando carregado */
+.qr-preview.pulse{animation:qrPulse 1.6s ease-out}
+@keyframes qrPulse{0%{box-shadow:0 0 0 0 rgba(148,60,171,0.18)}70%{box-shadow:0 0 40px 18px rgba(148,60,171,0)}100%{box-shadow:0 0 0 0 rgba(148,60,171,0)}}
+
+/* Decor transição suave ao mover o mouse */
+.hero .decor{transition:transform .28s linear}
+
+/* small helpers */
+button:focus{outline:3px solid rgba(148,60,171,0.12);outline-offset:3px}
+
+/* print friendly */
+@media print{body{color:#000} .decor, .cta, .modal, .file-upload{display:none}}

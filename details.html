@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Detalhes - Convite de Maria Dulce</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <section class="hero">
+      <div class="decor left" aria-hidden="true"></div>
+      <div class="decor right" aria-hidden="true"></div>
+
+      <div class="countdown" id="countdown" aria-hidden="false">
+        <div class="countdown-inner">⏳ Contagem regressiva: <span id="countdownTimer">-- dias --:--:--</span></div>
+      </div>
+
+      <div class="card">
+        <div class="badge">Detalhes do Convite</div>
+        <h1 class="name"><span id="guestName" data-full="Maria Dulce">Maria Dulce</span></h1>
+        <p class="age"><span id="age">80</span> anos</p>
+        <p class="subtitle">Completando <strong>80 anos</strong></p>
+
+        <div class="cta">
+          <a class="link-btn" href="index.html">Voltar ao início</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="details" id="details-full">
+      <div class="info">
+        <h2>Informações</h2>
+        <ul>
+          <li><strong>Data:</strong> <span id="date">28/03/2026</span></li>
+          <li><strong>Dia:</strong> <span id="day">Sábado</span></li>
+          <li><strong>Hora:</strong> <span id="time">18:00</span></li>
+          <li><strong>Local:</strong> <span id="place">R. Des. José Gomes da Costa, 1004 - Capim Macio, Natal - RN, 59082-140</span></li>
+        </ul>
+
+        <div class="map">
+          <iframe src="https://www.google.com/maps?q=R.%20Des.%20Jos%C3%A9%20Gomes%20da%20Costa,%201004%20-%20Capim%20Macio,%20Natal%20-%20RN,%2059082-140&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <p class="map-link"><a href="https://www.google.com/maps/search/?api=1&query=R.%20Des.%20Jos%C3%A9%20Gomes%20da%20Costa,%201004%20-%20Capim%20Macio,%20Natal%20-%20RN,%2059082-140" target="_blank" rel="noopener">Abrir no mapa</a></p>
+        </div>
+
+        <h3>Sugestão de presente</h3>
+        <p id="gift">Sugestão: dinheiro para ajudar a conseguir fazer uma viagem.</p>
+      </div>
+
+      <div class="pix">
+        <h2>Pix & Presente 🎁</h2>
+        <div class="pix-card">
+          <div class="qr-preview">
+            <img id="qrImage" src="https://i.imgur.com/2hgICY7.jpeg" alt="QR Pix">
+          </div>
+
+          <div class="pix-controls">
+            <div class="pix-key">
+              <input type="text" id="pixKey" value="108.480.374-72" readonly aria-readonly="true" title="Chave Pix somente leitura">
+              <button id="copyPix">Copiar</button>
+            </div>
+          </div>
+
+          <small class="note">Dica: use o botão <strong>Copiar</strong> para copiar a chave Pix.</small>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>Confirme sua presença até <strong>20/02/2026</strong> — esperamos você! 🎈</p>
+    </footer>
+  </main>
+
+  <script src="js/utils.js" defer></script>
+  <script src="js/details.js" defer></script>
+</body>
+</html>
