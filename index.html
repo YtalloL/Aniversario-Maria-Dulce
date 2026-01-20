@@ -21,7 +21,7 @@
         <div class="badge">Você está convidado(a)</div>
         <img class="portrait" src="assets/foto-dulce.jpeg" alt="Dona Dulce" loading="lazy">
         <h1 class="name"><span id="guestName" data-full="Aniversário">Aniversário</span></h1>
-        <p class="name"><span id="guestName">Mária Dulce</span></p>
+        <p class="name"><span id="guestName">Maria Dulce</span></p>
         <p class="subtitle"><strong>80 anos</strong></p>
 
         <div class="cta">
@@ -39,79 +39,6 @@
     </footer>
   </main>
 
-
-
-  <script>
-    // Pegar referências aos elementos que vamos usar (botões, QR, chave Pix)
-    const openDetailsEls = document.querySelectorAll('.open-details');
-    const qrImage = document.getElementById('qrImage');
-    const copyBtn = document.getElementById('copyPix');
-    const pixKey = document.getElementById('pixKey');
-
-
-
-    const guestName = document.getElementById('guestName');
-    const ageEl = document.getElementById('age');
-    const date = document.getElementById('date');
-    const time = document.getElementById('time');
-    const place = document.getElementById('place');
-    const gift = document.getElementById('gift');
-
-    // Paleta para o confete agora está em js/utils.js
-
-    // Abrir/fechar painel de detalhes (carrega o conteúdo de `details.html` na primeira vez)
-    const detailsPanel = document.getElementById('detailsPanel');
-    let detailsLoaded = false;
-
-    // toggleDetails agora implementado em js/index.js — removido do HTML para evitar duplicação
-
-    openDetailsEls.forEach(el=> el.addEventListener('click', (ev)=>{
-      ev.preventDefault();
-      const rect = ev.target.getBoundingClientRect();
-      createConfetti(rect.left + rect.width/2, rect.top + rect.height/2, 30);
-      setTimeout(()=> toggleDetails(), 280);
-    }));
-
-    /* Contador: inicialização e atualizações agora gerenciadas por js/index.js (usa updateCountdownTo do utils.js) */
-
-    // O QR já vem pronto no convite (não deixamos enviar QR pela página) — está em `assets`.
-
-    // Copiar a chave Pix para a área de transferência quando o usuário clicar em 'Copiar'
-    if (copyBtn) {
-      copyBtn.addEventListener('click', async () => {
-        const val = pixKey.value.trim();
-        if (!val) {
-          copyBtn.textContent = 'Vazio';
-          setTimeout(()=> copyBtn.textContent = 'Copiar', 1200);
-          return;
-        }
-        try {
-          await navigator.clipboard.writeText(val);
-          copyBtn.textContent = 'Copiado!';
-          setTimeout(()=> copyBtn.textContent = 'Copiar', 1500);
-        } catch (err) {
-          copyBtn.textContent = 'Erro';
-          setTimeout(()=> copyBtn.textContent = 'Copiar', 1500);
-        }
-      });
-    }
-
-
-
-    /* Funções de formatação de data foram removidas do HTML; se precisar, posso movê-las para js/utils.js */
-
-    /* createConfetti movido para js/utils.js */
-
-    /* animateAge movido para js/utils.js */
-
-    /* typeName movido para js/utils.js */
-
-    /* revealWithin movido para js/utils.js */
-
-    /* Parallax agora inicializado em js/index.js */
-
-    /* Inicialização movida para js/index.js */
-  </script>
   <script src="js/utils.js" defer></script>
   <script src="js/index.js" defer></script>
 </body>

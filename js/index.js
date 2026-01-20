@@ -81,6 +81,24 @@
       setInterval(()=> updateCountdownTo(countdownTarget, timerEl), 1000);
     }
 
+    // Código movido do script inline em index.html: tratar cópia do Pix caso os elementos existam (seguro para página principal e painel carregado)
+    const copyBtn = document.getElementById('copyPix');
+    const pixKey = document.getElementById('pixKey');
+    if (copyBtn && pixKey) {
+      copyBtn.addEventListener('click', async () => {
+        const val = pixKey.value.trim();
+        if (!val) { copyBtn.textContent = 'Vazio'; setTimeout(()=> copyBtn.textContent = 'Copiar', 1200); return; }
+        try {
+          await navigator.clipboard.writeText(val);
+          copyBtn.textContent = 'Copiado!';
+          setTimeout(()=> copyBtn.textContent = 'Copiar', 1500);
+        } catch (err) {
+          copyBtn.textContent = 'Erro';
+          setTimeout(()=> copyBtn.textContent = 'Copiar', 1500);
+        }
+      });
+    }
+
   });
 
   // ligar eventos dos botões que abrem o painel

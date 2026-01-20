@@ -94,6 +94,10 @@ body{padding-top:76px}
 .map-link{margin-top:6px}
 .map-link a{color:var(--accent-4);font-weight:600}
 
+/* Botão para adicionar ao Google Agenda */
+.calendar-btn{margin-left:10px;background:white;color:var(--accent-4);border:1px solid rgba(148,60,171,0.12);padding:6px 10px;border-radius:8px;font-weight:700;cursor:pointer}
+.calendar-btn:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(148,60,171,0.06)}
+
 .footer{text-align:center;margin-top:22px;color:rgba(0,0,0,0.6)}
 
 /* Modal */
